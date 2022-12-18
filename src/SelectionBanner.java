@@ -46,8 +46,8 @@ public class SelectionBanner extends Panel implements ItemListener {
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        App.getTopLevelContainerApp(this).log(e.toString());
         if (ban.getState()) {
+            App.getTopLevelContainerApp(this).log("Изменения запрещены");
             oval.setEnabled(false);
             rect.setEnabled(false);
             tri.setEnabled(false);
@@ -59,6 +59,7 @@ public class SelectionBanner extends Panel implements ItemListener {
             rect.setEnabled(true);
             tri.setEnabled(true);
             line.setEnabled(true);
+            App.getTopLevelContainerApp(this).log(String.format("Разрешены изменения %s", cbg.getSelectedCheckbox().getLabel()));
             e = new ItemEvent(e.getItemSelectable(), 0, cbg.getSelectedCheckbox().getLabel(), ItemEvent.SELECTED);
         }
 

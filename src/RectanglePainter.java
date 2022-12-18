@@ -16,14 +16,13 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
 
     @Override
     public void adjustmentValueChanged(AdjustmentEvent e) {
-        App.getTopLevelContainerApp(this).log(e.toString());
+        App.getTopLevelContainerApp(this).log(String.format("Увеличение длины прямоугольника до %f", e.getValue()/90f));
         r = e.getAdjustable().getValue();
         repaint();
     }
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        App.getTopLevelContainerApp(this).log(e.toString());
         if (e.getItem().equals(0)) {
             color = Color.BLACK;
         } else if(e.getItem().equals(1)) {
@@ -33,6 +32,7 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
         } else if (e.getItem().equals(3)) {
             color = Color.YELLOW;
         }
+        App.getTopLevelContainerApp(this).log(String.format("Установка цвета прямоугольника %s", e.getItemSelectable().getSelectedObjects()[0].toString()));
         repaint();
     }
 }

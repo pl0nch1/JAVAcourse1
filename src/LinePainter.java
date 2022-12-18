@@ -12,7 +12,6 @@ public class LinePainter extends Component implements TextListener {
 
     @Override
     public void textValueChanged(TextEvent e) {
-        App.getTopLevelContainerApp(this).log(e.toString());
         if (e.getID() != TextEvent.TEXT_VALUE_CHANGED)
             return;
 
@@ -23,6 +22,7 @@ public class LinePainter extends Component implements TextListener {
             x = 0;
         }
         finally {
+            App.getTopLevelContainerApp(this).log(String.format("Установлена проекционная длина %d", x));
             repaint();
         }
     }
