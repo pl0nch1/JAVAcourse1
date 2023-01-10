@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.event.TextListener;
 
 public class LineBanner extends Panel{
-    public LineBanner(){
+    public LineBanner(State state){
         setBackground(new Color(105,150,225));
         Dimension dim = new Dimension(1000, 15);
         setLayout(new GridBagLayout());
@@ -23,7 +23,7 @@ public class LineBanner extends Panel{
         add(projectionLength, constraints);
         constraints.weighty = 1;
         constraints.gridy = 3;
-        LinePainter painter = new LinePainter();
+        LinePainter painter = new LinePainter(dim, state);
         painter.setPreferredSize(dim);
         painter.setMinimumSize(dim);
         projectionLength.addTextListener(painter);

@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class RectangleBanner extends Panel {
-    public RectangleBanner(){
+    public RectangleBanner(State state){
         setBackground(new Color(105,150,225));
         GridBagConstraints constraints = new GridBagConstraints();
         setLayout(new GridBagLayout());
@@ -13,7 +13,7 @@ public class RectangleBanner extends Panel {
         add(new Label("Рисование квадрата"), constraints);
 
         Dimension dim = new Dimension(1000, 15);
-        RectanglePainter painter = new RectanglePainter();
+        RectanglePainter painter = new RectanglePainter(state);
         painter.setMinimumSize(dim);
         painter.setPreferredSize(dim);
         constraints.weighty = 1;

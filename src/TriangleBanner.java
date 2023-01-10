@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class TriangleBanner extends Panel {
-    public TriangleBanner(){
+    public TriangleBanner(State state){
         setBackground(new Color(148,180,217));
         Dimension dim = new Dimension(1000, 20);
         setLayout(new GridBagLayout());
@@ -23,7 +23,7 @@ public class TriangleBanner extends Panel {
         add(maxButton, constraints);
         constraints.weighty = 1;
         constraints.gridy = 3;
-        TrianglePainter painter = new TrianglePainter();
+        TrianglePainter painter = new TrianglePainter(state);
         painter.setMinimumSize(dim);
         painter.setPreferredSize(dim);
         maxButton.addActionListener(painter);

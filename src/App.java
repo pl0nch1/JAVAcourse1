@@ -16,6 +16,7 @@ public class App extends Frame{
     private String fileName = "application.log";
     private TextArea logs; // Буферизированный символьный поток записи в файл
     private BufferedWriter out;
+    private State state = new State();
     public static void main(String[] args) {
         App singleApp = new App();
     }
@@ -29,10 +30,10 @@ public class App extends Frame{
         constraints.weightx = 1;
 
         Dimension dim = new Dimension(1000,2000);
-        MiddleBanner middle = new MiddleBanner();
+        MiddleBanner middle = new MiddleBanner(state);
         middle.setPreferredSize(dim);
         middle.setMinimumSize(dim);
-        RightBanner right = new RightBanner();
+        RightBanner right = new RightBanner(state);
         right.setPreferredSize(dim);
         right.setMinimumSize(dim);
         SelectionBanner banner = new SelectionBanner(middle, right);

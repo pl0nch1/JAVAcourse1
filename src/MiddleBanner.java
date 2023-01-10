@@ -5,10 +5,10 @@ import java.awt.event.ItemListener;
 public class MiddleBanner extends Panel implements ItemListener {
     OvalBanner oval;
     LineBanner line;
-    public MiddleBanner() {
+    public MiddleBanner(State state) {
         setLayout(new GridLayout(2,1));
-        oval = new OvalBanner();
-        line = new LineBanner();
+        oval = new OvalBanner(state);
+        line = new LineBanner(state);
         add(oval);
         add(line);
         oval.setEnabled(false);

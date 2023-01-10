@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class OvalBanner extends Panel{
-    public OvalBanner(){
+    public OvalBanner(State state){
         setLayout(new GridBagLayout());
         setBackground(new Color(148,180,217));
         GridBagConstraints constraints = new GridBagConstraints();
@@ -15,7 +15,7 @@ public class OvalBanner extends Panel{
         Dimension dim = new Dimension(1000, 20);
         constraints.gridy = 1;
         constraints.weighty = 1;
-        OvalPainter painter = new OvalPainter();
+        OvalPainter painter = new OvalPainter(state);
         painter.setMinimumSize(dim);
         painter.setPreferredSize(dim);
         add(painter, constraints);

@@ -5,10 +5,10 @@ import java.awt.event.ItemListener;
 public class RightBanner extends Panel implements ItemListener {
     RectangleBanner rect;
     TriangleBanner tri;
-    public RightBanner() {
+    public RightBanner(State state) {
         setLayout(new GridLayout(2,1));
-        rect = new RectangleBanner();
-        tri = new TriangleBanner();
+        rect = new RectangleBanner(state);
+        tri = new TriangleBanner(state);
         add(rect);
         add(tri);
         rect.setEnabled(false);
