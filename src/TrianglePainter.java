@@ -24,12 +24,6 @@ public class TrianglePainter extends Component implements ActionListener, Runnab
         Button button = (Button) e.getSource();
         String text = button.getLabel();
         up = text.equals("Максимум");
-        if (up){
-            App.getTopLevelContainerApp(this).log("Максимизация треугольника");
-        }
-        else{
-            App.getTopLevelContainerApp(this).log("Минимизация треугольника");
-        }
         repaint();
     }
 

@@ -10,6 +10,10 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
     private Color color;
     private State state;
 
+    private boolean matchesColor(ItemEvent e, String s){
+        return ((List) e.getItemSelectable()).getSelectedItem().intern().equals(s);
+    }
+
     @Override
     public void paint(Graphics g){
         g.setColor(color);
@@ -26,23 +30,21 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
 
     @Override
     public void adjustmentValueChanged(AdjustmentEvent e) {
-        App.getTopLevelContainerApp(this).log(String.format("Увеличение длины прямоугольника до %f", e.getValue()/90f));
         r = e.getAdjustable().getValue();
         repaint();
     }
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        if (e.getItem().equals(0)) {
+        if (matchesColor(e, "Чёрный")) {
             color = Color.BLACK;
-        } else if(e.getItem().equals(1)) {
+        } else if(matchesColor(e, "Синий")) {
             color = Color.BLUE;
-        } else if (e.getItem().equals(2)) {
+        } else if (matchesColor(e, "Тёмно-серый")) {
             color = Color.DARK_GRAY;
-        } else if (e.getItem().equals(3)) {
+        } else if (matchesColor(e, "Жёлтый")) {
             color = Color.YELLOW;
         }
-        App.getTopLevelContainerApp(this).log(String.format("Установка цвета прямоугольника %s", e.getItemSelectable().getSelectedObjects()[0].toString()));
         repaint();
     }
 

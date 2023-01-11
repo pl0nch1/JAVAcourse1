@@ -23,7 +23,6 @@ public class LinePainter extends Component implements TextListener, Runnable {
             x = 0;
         }
         finally {
-            App.getTopLevelContainerApp(this).log(String.format("Установлена проекционная длина %d", x));
             repaint();
         }
     }

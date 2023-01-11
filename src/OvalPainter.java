@@ -21,14 +21,12 @@ public class OvalPainter extends Component implements AdjustmentListener, ItemLi
 
     @Override
     public void adjustmentValueChanged(AdjustmentEvent e) {
-        App.getTopLevelContainerApp(this).log(String.format("Увеличение овала до %f", e.getValue()/90f));
         r = e.getValue();
         repaint();
     }
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        App.getTopLevelContainerApp(this).log(String.format("Смена цвета овала на %s", e.getItem()));
         if (e.getItem() == "Розовый"){
             color = Color.PINK;
         } else if (e.getItem() == "Чёрный") {
