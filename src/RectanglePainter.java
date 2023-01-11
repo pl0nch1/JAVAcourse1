@@ -16,17 +16,21 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
 
     @Override
     public void paint(Graphics g){
+        Image buffer = createImage(getWidth(), getHeight());
+        Graphics gc = buffer.getGraphics();
         // Отрисовка диагонали на основании анимируемого параметра
-        g.setColor(color);
+        gc.setColor(color);
         int width = 10+(int)((getWidth()-20)*(r/90f));
         int height = getHeight()-15;
-        g.drawRect(5,5, width, height);
+        gc.drawRect(5,5, width, height);
         if (prop < 50){
-            g.drawLine(5 + (int) (prop / 50.0f * width),5 ,5,5 + (int) (prop / 50.0f * height));
+            gc.drawLine(5 + (int) (prop / 50.0f * width),5 ,5,5 + (int) (prop / 50.0f * height));
         } else {
-            g.drawLine(5 + (int) ((prop-50) / 50.0f * width),5 + height,
+            gc.drawLine(5 + (int) ((prop-50) / 50.0f * width),5 + height,
                     5 + width,5 + (int) ((prop-50) / 50.0f * height));
         }
+
+        g.drawImage(buffer, 0, 0, this);
     }
 
     @Override
@@ -65,7 +69,7 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
                 // Создание и запуск потока анимации
                 synchronized (state){
                     // Если состояние 3
-                    while (state.getNum() == 3){
+                    while ((state.getNum() == 3) && (!state.getStopped())) {
                         prop = (prop + 1) % 100;
                         repaint();
                         Thread.sleep(10);

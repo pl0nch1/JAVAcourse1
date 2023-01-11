@@ -33,7 +33,7 @@ public class App extends Frame{
         RightBanner right = new RightBanner(state); // Проброс объекта состояния в баннеры
         right.setPreferredSize(dim);
         right.setMinimumSize(dim);
-        SelectionBanner banner = new SelectionBanner(middle, right);
+        SelectionBanner banner = new SelectionBanner(middle, right, state);
         banner.setPreferredSize(dim);
         banner.setMinimumSize(dim);
         add(banner, constraints);

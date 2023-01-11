@@ -11,13 +11,16 @@ public class TrianglePainter extends Component implements ActionListener, Runnab
 
     @Override
     public void paint(Graphics g){
+        Image buffer = createImage(getWidth(), getHeight());
+        Graphics gc = buffer.getGraphics();
         // Отрисовка ребер треугольника на основании анимируемого параметра
         float multiplier = 1f;
         if (!up){
             multiplier /= 2;
         }
-        g.drawLine((int) (getWidth()*prop/100.0f) , getHeight(), getWidth()/2, (int) (getHeight() * (1-multiplier)));
-        g.drawLine((int)(getWidth()*(1 - prop/100.0f)), getHeight(), getWidth()/2, (int) (getHeight() * (1-multiplier)));
+        gc.drawLine((int) (getWidth()*prop/100.0f) , getHeight(), getWidth()/2, (int) (getHeight() * (1-multiplier)));
+        gc.drawLine((int)(getWidth()*(1 - prop/100.0f)), getHeight(), getWidth()/2, (int) (getHeight() * (1-multiplier)));
+        g.drawImage(buffer, 0, 0, this);
     }
 
     @Override
@@ -43,7 +46,7 @@ public class TrianglePainter extends Component implements ActionListener, Runnab
             while (true) {
                 synchronized (state) {
                     // Если состояние 0
-                    while (state.getNum() == 0) {
+                    while (state.getNum() == 0 && !state.getStopped()) {
                         // Изменение анимируемого параметра
                         prop = (prop + 1) % 100;
                         repaint();

@@ -5,10 +5,14 @@ import java.awt.event.TextListener;
 public class LinePainter extends Component implements TextListener, Runnable {
     private int x = 0;
     private float yStart;
+    private boolean direction;
     private State state;
     @Override
     public void paint(Graphics g){
-        g.drawLine(0 , (int) (yStart * getHeight()) - 10, x,0);
+        Image buffer = createImage(getWidth(), getHeight());
+        Graphics gc = buffer.getGraphics();
+        gc.drawLine(0 , (int) (yStart * getHeight()) - 10, x,0);
+        g.drawImage(buffer, 0, 0, this);
     }
 
     @Override
@@ -31,6 +35,7 @@ public class LinePainter extends Component implements TextListener, Runnable {
         setPreferredSize(dim);
         setMinimumSize(dim);
         yStart = 1;
+        direction = true;
         this.state = state;
         // Создание и запуск потока анимации
         new Thread(this).start();
@@ -44,21 +49,26 @@ public class LinePainter extends Component implements TextListener, Runnable {
                 // Блокировка объекта state
                 synchronized (state) {
                     // Если состояние 1
-                    if (state.getNum() == 1) {
-                        // Поднятие линии
-                        while (yStart > 0) {
+                    while ((state.getNum() == 1) && (!state.getStopped())) {
+                        if (direction){
+                            // Поднятие линии
                             yStart -= 0.01;
-                            repaint();
-                            Thread.sleep(10);
-                        }
-                        // Спад линии
-                        while (yStart < 1) {
+                            if (yStart <= 0){
+                                yStart = 0;
+                                direction = false;
+                            }
+                        } else {
+                            // Спад линии
                             yStart += 0.01;
-                            repaint();
-                            Thread.sleep(10);
                         }
-                        // Смена состояния
-                        state.next();
+                        repaint();
+                        Thread.sleep(10);
+                        if (yStart >= 1){
+                            // Смена состояния
+                            state.next();
+                            direction = true;
+                            yStart=1;
+                        }
                     }
                     // Оповещение всех ожидающих state потоков
                     state.notifyAll();

@@ -6,8 +6,9 @@ import java.awt.event.ItemListener;
 public class SelectionBanner extends Panel implements ItemListener {
     private ItemListener middlePanel, rightPanel;
     CheckboxGroup cbg;
+    State state;
     Checkbox ban, tri, oval, line, rect;
-    public SelectionBanner(ItemListener middlePanel, ItemListener rightPanel){
+    public SelectionBanner(ItemListener middlePanel, ItemListener rightPanel, State state){
         setBackground(new Color(179, 190, 230));
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -40,6 +41,7 @@ public class SelectionBanner extends Panel implements ItemListener {
         ban.addItemListener(this);
         add(ban, constraints);
 
+        this.state = state;
         this.middlePanel = middlePanel;
         this.rightPanel = rightPanel;
     }
@@ -47,6 +49,7 @@ public class SelectionBanner extends Panel implements ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (ban.getState()) {
+            state.stop();
             oval.setEnabled(false);
             rect.setEnabled(false);
             tri.setEnabled(false);
@@ -54,6 +57,7 @@ public class SelectionBanner extends Panel implements ItemListener {
             e = new ItemEvent(e.getItemSelectable(), 0, "ban", ItemEvent.SELECTED);
         }
         else {
+            state.resume();
             oval.setEnabled(true);
             rect.setEnabled(true);
             tri.setEnabled(true);
