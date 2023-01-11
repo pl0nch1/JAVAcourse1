@@ -48,21 +48,32 @@ public class SelectionBanner extends Panel implements ItemListener {
 
     @Override
     public void itemStateChanged(ItemEvent e) {
-        if (ban.getState()) {
-            state.stop();
-            oval.setEnabled(false);
-            rect.setEnabled(false);
-            tri.setEnabled(false);
-            line.setEnabled(false);
-            e = new ItemEvent(e.getItemSelectable(), 0, "ban", ItemEvent.SELECTED);
-        }
-        else {
-            state.resume();
-            oval.setEnabled(true);
-            rect.setEnabled(true);
-            tri.setEnabled(true);
-            line.setEnabled(true);
-            e = new ItemEvent(e.getItemSelectable(), 0, cbg.getSelectedCheckbox().getLabel(), ItemEvent.SELECTED);
+        if (e.getSource() == ban){
+            if (ban.getState()) {
+                state.stop();
+                oval.setEnabled(false);
+                rect.setEnabled(false);
+                tri.setEnabled(false);
+                line.setEnabled(false);
+                e = new ItemEvent(e.getItemSelectable(), 0, "ban", ItemEvent.SELECTED);
+            }
+            else {
+                state.resume();
+                oval.setEnabled(true);
+                rect.setEnabled(true);
+                tri.setEnabled(true);
+                line.setEnabled(true);
+                e = new ItemEvent(e.getItemSelectable(), 0, cbg.getSelectedCheckbox().getLabel(), ItemEvent.SELECTED);
+                if (cbg.getSelectedCheckbox() == tri){
+                    state.setNum(0);
+                } else if (cbg.getSelectedCheckbox() == oval) {
+                    state.setNum(2);
+                } else if (cbg.getSelectedCheckbox() == line) {
+                    state.setNum(1);
+                } else if (cbg.getSelectedCheckbox() == rect) {
+                    state.setNum(3);
+                }
+            }
         }
 
         middlePanel.itemStateChanged(e);

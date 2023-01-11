@@ -6,6 +6,10 @@ public class State {
         num = (num + 1) % 4;
     }
 
+    public void setNum(int num){
+        this.num = num;
+    }
+
     public void stop(){
         stopped = true;
     }

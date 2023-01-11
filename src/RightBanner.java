@@ -5,7 +5,9 @@ import java.awt.event.ItemListener;
 public class RightBanner extends Panel implements ItemListener {
     RectangleBanner rect;
     TriangleBanner tri;
+    State state;
     public RightBanner(State state) {
+        this.state = state;
         setLayout(new GridLayout(2,1));
         rect = new RectangleBanner(state); // Проброс объекта состояния в баннеры
         tri = new TriangleBanner(state); // Проброс объекта состояния в баннеры
