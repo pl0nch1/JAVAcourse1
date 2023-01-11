@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96105863-2f1d-4713-b4eb-8aa097c7f305" name="Changes" comment="fix logger">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="96105863-2f1d-4713-b4eb-8aa097c7f305" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinePainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinePainter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OvalPainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OvalPainter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RectanglePainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RectanglePainter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SelectionBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SelectionBanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TrianglePainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrianglePainter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671380513990</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix">
+      <created>1673432290024</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673432290024</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -100,6 +101,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="fix logger" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix logger" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>

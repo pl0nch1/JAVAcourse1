@@ -13,10 +13,7 @@ import java.util.logging.SimpleFormatter;
 import static java.lang.System.out;
 
 public class App extends Frame{
-    private String fileName = "application.log";
-    private TextArea logs; // Буферизированный символьный поток записи в файл
-    private BufferedWriter out;
-    private State state = new State();
+    private State state = new State(); //
     public static void main(String[] args) {
         App singleApp = new App();
     }
@@ -47,34 +44,8 @@ public class App extends Frame{
         setVisible(true);
         addWindowListener(new WindowAdapter(){
             public void windowClosing(WindowEvent e) {
-                closeAppl();
                 System.exit(0);
             }
         });
     }
-
-    public static App getTopLevelContainerApp(Component component){
-        while (component.getParent() != null){
-            component = component.getParent();
-        }
-        return (App) component;
-    }
-
-    // Сброс и закрытие потока записи в файл
-    // при завершении выполнения приложения
-    private void closeAppl()
-    {
-        if (out != null) {
-            Calendar c = Calendar.getInstance();
-            String dateMessage =
-                    "Дата и время: " + c.get(Calendar.DAY_OF_MONTH) + "/" +
-                            (c.get(Calendar.MONTH)+1) + " - " +  c.get(Calendar.YEAR) +
-                            " " + c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE);
-            try {
-                out.close();
-            }
-            catch(IOException ex) {}
-        }
-    }
-
 }
