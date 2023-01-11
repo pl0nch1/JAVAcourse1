@@ -9,8 +9,8 @@ public class SelectionBanner extends Panel implements ItemListener {
     Checkbox ban, tri, oval, line, rect;
     public SelectionBanner(ItemListener middlePanel, ItemListener rightPanel){
         setBackground(new Color(179, 190, 230));
-        setLayout(new GridBagLayout());
-        GridBagConstraints constraints = new GridBagConstraints();
+        setLayout(new GridBagLayout());// Назначение менеджера компоновки
+        GridBagConstraints constraints = new GridBagConstraints();// Создание параметров ячейки GridBagLayout' a
         constraints.fill = GridBagConstraints.VERTICAL;
         constraints.weighty = 0.5;
         constraints.weightx = 1;
@@ -44,8 +44,10 @@ public class SelectionBanner extends Panel implements ItemListener {
         this.rightPanel = rightPanel;
     }
 
+    // Верхнеуровневый обработчик нажатия радиокнопок
     @Override
     public void itemStateChanged(ItemEvent e) {
+        // Если галочка запрета стоит - то выклчаются все баннеры, инче - включается и событие распространяется
         if (ban.getState()) {
             App.getTopLevelContainerApp(this).log("Изменения запрещены");
             oval.setEnabled(false);
@@ -62,7 +64,7 @@ public class SelectionBanner extends Panel implements ItemListener {
             App.getTopLevelContainerApp(this).log(String.format("Разрешены изменения %s", cbg.getSelectedCheckbox().getLabel()));
             e = new ItemEvent(e.getItemSelectable(), 0, cbg.getSelectedCheckbox().getLabel(), ItemEvent.SELECTED);
         }
-
+        // Событие распространяется на баннеры, так как нет прямой ссылки на баннеры нижнего уровня
         middlePanel.itemStateChanged(e);
         rightPanel.itemStateChanged(e);
     }

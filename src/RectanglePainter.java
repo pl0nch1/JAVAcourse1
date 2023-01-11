@@ -8,12 +8,14 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
     private int r = 0;
     private Color color;
 
+    // Рисование прямоугольника
     @Override
     public void paint(Graphics g){
         g.setColor(color);
         g.drawRect(5,5,10+(int)((getWidth()-20)*(r/90f)),getHeight()-15);
     }
 
+    // Обработчик изменения значения полосы прокрутки
     @Override
     public void adjustmentValueChanged(AdjustmentEvent e) {
         App.getTopLevelContainerApp(this).log(String.format("Увеличение длины прямоугольника до %f", e.getValue()/90f));
@@ -21,6 +23,7 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
         repaint();
     }
 
+    // Обработчик изменения выбранного элемента списка
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (e.getItem().equals(0)) {

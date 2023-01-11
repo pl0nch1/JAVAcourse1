@@ -3,17 +3,18 @@ import java.awt.*;
 public class RectangleBanner extends Panel {
     public RectangleBanner(){
         setBackground(new Color(105,150,225));
-        GridBagConstraints constraints = new GridBagConstraints();
-        setLayout(new GridBagLayout());
-        constraints.fill = GridBagConstraints.VERTICAL;
-        constraints.weightx = 100;
-        constraints.weighty = 0;
-        constraints.gridy = 0;
-        constraints.insets = new Insets(3,5,3,5);
+        GridBagConstraints constraints = new GridBagConstraints(); // Создание параметров ячейки GridBagLayout' a
+        setLayout(new GridBagLayout()); // Назначение менеджера компоновки
+        // Ниже идет создание и добавление с параметрами составляющих частей баннера
+        constraints.fill = GridBagConstraints.VERTICAL; // Задание вертикальной ориентации компоновщика
+        constraints.weightx = 100; // Задание горизонатльного веса элемента
+        constraints.weighty = 0; // Задание вертикального веса элемента
+        constraints.gridy = 0; // Задание вертикальной позиции элемента
+        constraints.insets = new Insets(3,5,3,5); // Задание внутренний отступов
         add(new Label("Рисование квадрата"), constraints);
 
         Dimension dim = new Dimension(1000, 15);
-        RectanglePainter painter = new RectanglePainter();
+        RectanglePainter painter = new RectanglePainter(); // Создание рисовальщика прямоугольника
         painter.setMinimumSize(dim);
         painter.setPreferredSize(dim);
         constraints.weighty = 1;
@@ -21,10 +22,10 @@ public class RectangleBanner extends Panel {
         add(painter, constraints);
 
         constraints.weighty = 0;
-        Scrollbar bar = new Scrollbar();
+        Scrollbar bar = new Scrollbar(); // Создание полосы прокрутки
         bar.setMinimumSize(dim);
         bar.setPreferredSize(dim);
-        bar.setOrientation(Scrollbar.HORIZONTAL);
+        bar.setOrientation(Scrollbar.HORIZONTAL); // Задание горизонатльной ориентации полосы прокрутки
         constraints.gridy = 2;
         add(bar,constraints);
         constraints.gridy = 3;
@@ -42,11 +43,12 @@ public class RectangleBanner extends Panel {
         list.setMinimumSize(dim);
         list.setPreferredSize(dim);
         list.addItemListener(painter);
-        bar.addAdjustmentListener(painter);
-        constraints.insets = new Insets(5,5,10,5);
+        bar.addAdjustmentListener(painter); // Назначение обаботчика события перемещения полосы прокрутки
+        constraints.insets = new Insets(5,5,10,5); // внутренние отступы
         add(list, constraints);
     }
 
+    // Метод правильного циклического отключения баннера
     @Override
     public void setEnabled(boolean b) {
         Component[] components = getComponents();

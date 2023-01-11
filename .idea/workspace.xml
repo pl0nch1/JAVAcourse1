@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="96105863-2f1d-4713-b4eb-8aa097c7f305" name="Changes" comment="Initial commit">
+    <list default="true" id="96105863-2f1d-4713-b4eb-8aa097c7f305" name="Changes" comment="fix 2">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LineBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LineBanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LinePainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinePainter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MiddleBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MiddleBanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OvalBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OvalBanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OvalPainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OvalPainter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RectangleBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RectangleBanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RectanglePainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RectanglePainter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RightBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RightBanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SelectionBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SelectionBanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TrianglePainter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrianglePainter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TriangleBanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TriangleBanner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +32,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="4f1b4ed6b263878024392fb0615753070a783eff" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -34,17 +48,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15527344&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.11921296&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15527344",
+    "project.structure.side.proportion": "0.11587486",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />

@@ -5,17 +5,20 @@ import java.awt.event.TextListener;
 public class LinePainter extends Component implements TextListener {
     private int x = 0;
 
+    // рисование линии
     @Override
     public void paint(Graphics g){
         g.drawLine(0 , getHeight()-10, x,0);
     }
 
+    // Обработка события изменения текста в текстовом поле
     @Override
     public void textValueChanged(TextEvent e) {
         if (e.getID() != TextEvent.TEXT_VALUE_CHANGED)
             return;
 
         try {
+            //Попытка преобразование текста в число
             x = Integer.parseInt(((TextField) e.getSource()).getText());
         }
         catch (NumberFormatException exc){

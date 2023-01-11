@@ -5,6 +5,7 @@ public class OvalPainter extends Component implements AdjustmentListener, ItemLi
     private int r = 0;
     private Color color;
 
+    // Метод рисования баннера
     @Override
     public void paint(Graphics g){
         g.setColor(Color.black);
@@ -13,6 +14,7 @@ public class OvalPainter extends Component implements AdjustmentListener, ItemLi
         g.fillOval(0,0, 10 + (int) ((getWidth()-10)*r/90.0f), 10 + (int) ((getHeight()-10)*r/90.0f));
     }
 
+    // Обработчик перемещения полсоы прокрутки
     @Override
     public void adjustmentValueChanged(AdjustmentEvent e) {
         App.getTopLevelContainerApp(this).log(String.format("Увеличение овала до %f", e.getValue()/90f));
@@ -20,6 +22,8 @@ public class OvalPainter extends Component implements AdjustmentListener, ItemLi
         repaint();
     }
 
+
+    // Обработик элемента списка цветов
     @Override
     public void itemStateChanged(ItemEvent e) {
         App.getTopLevelContainerApp(this).log(String.format("Смена цвета овала на %s", e.getItem()));

@@ -7,14 +7,15 @@ public class MiddleBanner extends Panel implements ItemListener {
     LineBanner line;
     public MiddleBanner() {
         setLayout(new GridLayout(2,1));
-        oval = new OvalBanner();
-        line = new LineBanner();
+        oval = new OvalBanner(); // Создание баннера овала
+        line = new LineBanner(); // СОздание баннера линии
         add(oval);
         add(line);
         oval.setEnabled(false);
         line.setEnabled(false);
     }
 
+    // Обработка события выбора радио-кнопки рисования
     @Override
     public void itemStateChanged(ItemEvent e) {
         oval.setEnabled(false);

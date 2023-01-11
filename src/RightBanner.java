@@ -6,14 +6,15 @@ public class RightBanner extends Panel implements ItemListener {
     RectangleBanner rect;
     TriangleBanner tri;
     public RightBanner() {
-        setLayout(new GridLayout(2,1));
-        rect = new RectangleBanner();
-        tri = new TriangleBanner();
+        setLayout(new GridLayout(2,1));// Назначение менеджера компоновки
+        rect = new RectangleBanner(); // Создание баннера прямоугольника
+        tri = new TriangleBanner(); // Создание баннера треугольника
         add(rect);
         add(tri);
         rect.setEnabled(false);
     }
 
+    // Обработка события выбора радио-кнопки рисования
     @Override
     public void itemStateChanged(ItemEvent e) {
         rect.setEnabled(false);
