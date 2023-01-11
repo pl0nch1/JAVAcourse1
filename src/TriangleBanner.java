@@ -23,7 +23,7 @@ public class TriangleBanner extends Panel {
         add(maxButton, constraints);
         constraints.weighty = 1;
         constraints.gridy = 3;
-        TrianglePainter painter = new TrianglePainter(state);
+        TrianglePainter painter = new TrianglePainter(state); // Проброс объекта состояния в рисовальщик
         painter.setMinimumSize(dim);
         painter.setPreferredSize(dim);
         maxButton.addActionListener(painter);

@@ -27,10 +27,10 @@ public class App extends Frame{
         constraints.weightx = 1;
 
         Dimension dim = new Dimension(1000,2000);
-        MiddleBanner middle = new MiddleBanner(state);
+        MiddleBanner middle = new MiddleBanner(state); // Проброс объекта состояния в баннеры
         middle.setPreferredSize(dim);
         middle.setMinimumSize(dim);
-        RightBanner right = new RightBanner(state);
+        RightBanner right = new RightBanner(state); // Проброс объекта состояния в баннеры
         right.setPreferredSize(dim);
         right.setMinimumSize(dim);
         SelectionBanner banner = new SelectionBanner(middle, right);

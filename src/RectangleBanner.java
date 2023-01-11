@@ -13,7 +13,7 @@ public class RectangleBanner extends Panel {
         add(new Label("Рисование квадрата"), constraints);
 
         Dimension dim = new Dimension(1000, 15);
-        RectanglePainter painter = new RectanglePainter(state);
+        RectanglePainter painter = new RectanglePainter(state); // Проброс объекта состояния в рисовальщик
         painter.setMinimumSize(dim);
         painter.setPreferredSize(dim);
         constraints.weighty = 1;

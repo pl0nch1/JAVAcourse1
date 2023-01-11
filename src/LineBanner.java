@@ -23,7 +23,7 @@ public class LineBanner extends Panel{
         add(projectionLength, constraints);
         constraints.weighty = 1;
         constraints.gridy = 3;
-        LinePainter painter = new LinePainter(dim, state);
+        LinePainter painter = new LinePainter(dim, state); // Проброс объекта состояния в рисовальщик
         painter.setPreferredSize(dim);
         painter.setMinimumSize(dim);
         projectionLength.addTextListener(painter);

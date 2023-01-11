@@ -11,6 +11,7 @@ public class TrianglePainter extends Component implements ActionListener, Runnab
 
     @Override
     public void paint(Graphics g){
+        // Отрисовка ребер треугольника на основании анимируемого параметра
         float multiplier = 1f;
         if (!up){
             multiplier /= 2;
@@ -31,24 +32,31 @@ public class TrianglePainter extends Component implements ActionListener, Runnab
     public TrianglePainter(State state){
         super();
         this.state = state;
+        // Создание и запуск потока анимации
         new Thread(this).start();
     }
 
+    // Реализация интерфейса runnable
     @Override
     public void run() {
         try {
             while (true) {
                 synchronized (state) {
+                    // Если состояние 0
                     while (state.getNum() == 0) {
+                        // Изменение анимируемого параметра
                         prop = (prop + 1) % 100;
                         repaint();
                         Thread.sleep(10);
                         if (prop == 0){
+                            // Смена состояния
                             state.next();
                         }
                     }
+                    // Оповещение всех ожидающих state потоков
                     state.notifyAll();
                     while (state.getNum() != 0) {
+                        // Введение потока в состояние ожидания
                         state.wait();
                     }
                 }

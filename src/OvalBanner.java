@@ -15,7 +15,7 @@ public class OvalBanner extends Panel{
         Dimension dim = new Dimension(1000, 20);
         constraints.gridy = 1;
         constraints.weighty = 1;
-        OvalPainter painter = new OvalPainter(state);
+        OvalPainter painter = new OvalPainter(state);// Проброс объекта состояния в рисовальщик
         painter.setMinimumSize(dim);
         painter.setPreferredSize(dim);
         add(painter, constraints);

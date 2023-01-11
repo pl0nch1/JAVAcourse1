@@ -7,8 +7,8 @@ public class MiddleBanner extends Panel implements ItemListener {
     LineBanner line;
     public MiddleBanner(State state) {
         setLayout(new GridLayout(2,1));
-        oval = new OvalBanner(state);
-        line = new LineBanner(state);
+        oval = new OvalBanner(state); // Проброс объекта состояния в баннеры
+        line = new LineBanner(state); // Проброс объекта состояния в баннеры
         add(oval);
         add(line);
         oval.setEnabled(false);

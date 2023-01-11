@@ -10,6 +10,7 @@ public class OvalPainter extends Component implements AdjustmentListener, ItemLi
 
     @Override
     public void paint(Graphics g){
+        // Отрисовка перемещаемого овала на основании анимируемого параметра
         g.setColor(Color.black);
         g.drawRect(0,0,getWidth()-1,getHeight()-1);
         g.setColor(color);
@@ -38,14 +39,18 @@ public class OvalPainter extends Component implements AdjustmentListener, ItemLi
     public OvalPainter(State state){
         super();
         this.state = state;
+        // Создание и запуск потока анимации
         new Thread(this).start();
     }
 
+    // Реализация интерфейса runnable
     @Override
     public void run() {
         try {
             while (true) {
+                // Блокировка объекта state
                 synchronized (state){
+                    // Если состояние 2
                     if (state.getNum() == 2){
                         while (x < 1) {
                             x += 0.01;
@@ -67,10 +72,13 @@ public class OvalPainter extends Component implements AdjustmentListener, ItemLi
                             repaint();
                             Thread.sleep(10);
                         }
+                        // Смена состояния
                         state.next();
                     }
+                    // Оповещение всех ожидающих state потоков
                     state.notifyAll();
                     while (state.getNum() != 2)
+                        // Введение потока в состояние ожидания
                         state.wait();
                 }
             }

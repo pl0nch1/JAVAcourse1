@@ -16,6 +16,7 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
 
     @Override
     public void paint(Graphics g){
+        // Отрисовка диагонали на основании анимируемого параметра
         g.setColor(color);
         int width = 10+(int)((getWidth()-20)*(r/90f));
         int height = getHeight()-15;
@@ -56,20 +57,26 @@ public class RectanglePainter extends Component implements AdjustmentListener, I
     }
 
 
+    // Реализация интерфейса runnable
     @Override
     public void run() {
         try {
             while (true) {
+                // Создание и запуск потока анимации
                 synchronized (state){
+                    // Если состояние 3
                     while (state.getNum() == 3){
                         prop = (prop + 1) % 100;
                         repaint();
                         Thread.sleep(10);
                         if (prop == 0)
+                            // Смена состояния
                             state.next();
                     }
+                    // Оповещение всех ожидающих state потоков
                     state.notifyAll();
                     while (state.getNum() != 3){
+                        // Введение потока в состояние ожидания
                         state.wait();
                     }
                 }

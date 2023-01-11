@@ -7,8 +7,8 @@ public class RightBanner extends Panel implements ItemListener {
     TriangleBanner tri;
     public RightBanner(State state) {
         setLayout(new GridLayout(2,1));
-        rect = new RectangleBanner(state);
-        tri = new TriangleBanner(state);
+        rect = new RectangleBanner(state); // Проброс объекта состояния в баннеры
+        tri = new TriangleBanner(state); // Проброс объекта состояния в баннеры
         add(rect);
         add(tri);
         rect.setEnabled(false);
